@@ -7,8 +7,8 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.ArrayList;
@@ -186,7 +186,14 @@ public class StorageService {
             // 在实际实现中，这里会将旧数据移动到归档存储
             // 例如从主数据库移动到冷存储或压缩存储
             
-            long archivedCount = messageStorage.removeIf(
+            // 统计被归档的消息数量
+            long archivedCount = messageStorage.stream()
+                .filter(message -> message.getTimestamp() != null && 
+                         message.getTimestamp().isBefore(archiveTime))
+                .count();
+            
+            // 移除旧消息
+            messageStorage.removeIf(
                 message -> message.getTimestamp() != null && 
                          message.getTimestamp().isBefore(archiveTime)
             );
@@ -264,7 +271,14 @@ public class StorageService {
         
         try {
             // 删除过期的数据
-            long deletedCount = messageStorage.removeIf(
+            // 统计被删除的消息数量
+            long deletedCount = messageStorage.stream()
+                .filter(message -> message.getTimestamp() != null && 
+                         message.getTimestamp().isBefore(expirationTime))
+                .count();
+            
+            // 删除过期消息
+            messageStorage.removeIf(
                 message -> message.getTimestamp() != null && 
                          message.getTimestamp().isBefore(expirationTime)
             );

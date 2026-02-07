@@ -1,0 +1,2 @@
+com\device\gateway\northbound\controller\NorthboundController.class
+com\device\gateway\northbound\service\NorthboundGatewayService.class

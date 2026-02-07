@@ -39,12 +39,14 @@
             <version>${californium.version}</version>
         </dependency>
         
-        <!-- Modbus Protocol Support -->
+        <!-- Modbus Protocol Support (暂时注释，因为依赖不可用) -->
+        <!--
         <dependency>
             <groupId>com.infiniteautomation</groupId>
             <artifactId>modbus4j</artifactId>
             <version>${modbus4j.version}</version>
         </dependency>
+        -->
         
         <!-- Netty for TCP/UDP -->
         <dependency>

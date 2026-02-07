@@ -1,0 +1,6 @@
+com\device\gateway\core\manager\impl\DeviceManagerImpl.class
+com\device\gateway\core\config\ProtocolConfig.class
+com\device\gateway\core\manager\DeviceManager.class
+com\device\gateway\core\config\ProtocolConfig$ProtocolConfigBuilder.class
+com\device\gateway\core\handler\ProtocolHandler.class
+com\device\gateway\core\route\MessageRouter.class

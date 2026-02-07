@@ -1,0 +1,7 @@
+com\device\gateway\common\message\Message.class
+com\device\gateway\common\message\Message$MessageBuilder.class
+com\device\gateway\common\entity\Device.class
+com\device\gateway\common\message\MessageType.class
+com\device\gateway\common\entity\Device$DeviceBuilder.class
+com\device\gateway\common\ProtocolType.class
+com\device\gateway\common\enums\ConnectionStatus.class
