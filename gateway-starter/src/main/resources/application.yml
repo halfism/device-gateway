@@ -1,0 +1,64 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: device-gateway
+  
+  # MongoDB配置（用于存储服务）
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/iot_gateway
+  
+  # Redis配置（用于缓存和会话）
+  redis:
+    host: localhost
+    port: 6379
+    timeout: 5000ms
+  
+  # Kafka配置（用于消息队列）
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      group-id: iot-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+
+# 设备网关特定配置
+device-gateway:
+  mqtt:
+    host: localhost
+    port: 1883
+    username: admin
+    password: admin
+  tcp:
+    host: 0.0.0.0
+    port: 8081
+  http:
+    port: 8082
+  websocket:
+    port: 8083
+
+logging:
+  level:
+    com.device.gateway: DEBUG
+    org.springframework: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/device-gateway.log
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: when-authorized
