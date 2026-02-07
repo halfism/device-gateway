@@ -53,6 +53,51 @@ device-gateway:
   websocket:
     port: 8083
 
+# 网关代理配置
+gateway:
+  proxy:
+    southbound:
+      host: 0.0.0.0
+      port: 9090
+      max-connections: 1000
+      connection-timeout: 30000
+    northbound:
+      batch-size: 100
+      batch-timeout: 5000
+      endpoints:
+        - name: http-platform
+          type: HTTP
+          url: http://platform.example.com/api/data
+          headers:
+            Content-Type: application/json
+            Authorization: Bearer your-token
+        - name: kafka-broker
+          type: KAFKA
+          url: localhost:9092
+          topic: iot-device-data
+        - name: amqp-broker
+          type: AMQP
+          url: amqp://localhost:5672
+          exchange: iot.exchange
+          routing-key: device.data
+    protocol-routes:
+      mqtt:
+        target-gateway: southbound-gateway
+        target-host: localhost
+        target-port: 8081
+      tcp:
+        target-gateway: southbound-gateway
+        target-host: localhost
+        target-port: 8081
+      http:
+        target-gateway: southbound-gateway
+        target-host: localhost
+        target-port: 8082
+      websocket:
+        target-gateway: southbound-gateway
+        target-host: localhost
+        target-port: 8083
+
 logging:
   level:
     com.device.gateway: DEBUG

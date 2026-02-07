@@ -1,0 +1,14 @@
+com\device\gateway\proxy\controller\GatewayProxyController.class
+com\device\gateway\proxy\controller\GatewayProxyController$SimpleResponse.class
+com\device\gateway\proxy\config\GatewayProxyConfig$NorthboundConfig.class
+com\device\gateway\proxy\controller\GatewayProxyController$MessageResponse.class
+com\device\gateway\proxy\service\ExternalPushService.class
+com\device\gateway\proxy\config\GatewayProxyConfig$ExternalEndpoint.class
+com\device\gateway\proxy\config\GatewayProxyConfig$ProtocolRouteConfig.class
+com\device\gateway\proxy\controller\GatewayProxyController$ConnectResponse.class
+com\device\gateway\proxy\route\ProtocolRouter.class
+com\device\gateway\proxy\config\GatewayProxyConfig.class
+com\device\gateway\proxy\service\GatewayProxyService.class
+com\device\gateway\proxy\controller\GatewayProxyController$FlushResponse.class
+com\device\gateway\proxy\config\GatewayProxyConfig$SouthboundConfig.class
+com\device\gateway\proxy\controller\GatewayProxyController$StatusResponse.class
