@@ -10,15 +10,25 @@
     <packaging>pom</packaging>
 
     <modules>
+        <!-- Core Infrastructure -->
         <module>common</module>
         <module>gateway-core</module>
+        <module>gateway-infrastructure</module>
+        
+        <!-- Protocol Support -->
         <module>protocol-handler</module>
+        
+        <!-- Gateway Services -->
         <module>southbound-gateway</module>
         <module>northbound-gateway</module>
+        <module>gateway-proxy</module>
+        
+        <!-- Data Processing -->
         <module>message-converter</module>
         <module>streaming-service</module>
         <module>storage-service</module>
-        <module>gateway-proxy</module>
+        
+        <!-- Application Starter -->
         <module>gateway-starter</module>
     </modules>
 

@@ -21,6 +21,12 @@
         
         <dependency>
             <groupId>com.device.gateway</groupId>
+            <artifactId>gateway-infrastructure</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.device.gateway</groupId>
             <artifactId>common</artifactId>
             <version>${project.version}</version>
         </dependency>
